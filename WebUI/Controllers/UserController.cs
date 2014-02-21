@@ -15,6 +15,10 @@ namespace WebUI.Controllers
         {
             return View();
         }
-
+        [HttpPost]
+        public JavaScriptResult Hola()
+        {
+            return  JavaScript("alert('Gracias!!');");
+        }
     }
 }

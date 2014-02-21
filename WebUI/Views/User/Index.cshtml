@@ -1,8 +1,20 @@
-﻿@{
+﻿
+@{
     ViewBag.Title = "Index";
 }
+
 <h2>@Resources.Views.GeneralResource.GeneralText.ByeText</h2>
-    <input type="button" id="btn" value="Clickeame" />
+<input type="button" id="btn" value="Clickeame" onclick=""/>
+<br/>
+@Ajax.ActionLink("show","Hola",new AjaxOptions()
+                                   {
+                                       HttpMethod = "post"
+                                   })
+
+
+
+
+
 
 
 
