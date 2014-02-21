@@ -16,9 +16,9 @@ namespace WebUI.Controllers
             return View();
         }
         [HttpPost]
-        public JavaScriptResult Hola()
+        public ActionResult  Hola()
         {
-            return  JavaScript("alert('Gracias!!');");
+            return PartialView("index");
         }
     }
 }

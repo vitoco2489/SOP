@@ -4,12 +4,17 @@
 }
 
 <h2>@Resources.Views.GeneralResource.GeneralText.ByeText</h2>
-<input type="button" id="btn" value="Clickeame" onclick=""/>
-<br/>
-@Ajax.ActionLink("show","Hola",new AjaxOptions()
-                                   {
-                                       HttpMethod = "post"
-                                   })
+@Ajax.ActionLink("mostrar","Hola",new AjaxOptions()
+                                      {
+                                          HttpMethod = "post",
+                                          UpdateTargetId = "m",
+                                          InsertionMode = InsertionMode.InsertBefore
+                                      })
+
+<div id ="m">
+    
+
+</div>
 
 
 
