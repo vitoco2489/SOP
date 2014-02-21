@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebUI.Controllers
 {
-    public class UserController : Controller
+    public class UserController : BaseController
     {
         //
         // GET: /User/
