@@ -15,8 +15,9 @@ namespace WebUI.Controllers
         {
             return View();
         }
+
         [HttpPost]
-        public ActionResult  Hola()
+        public ActionResult Hola()
         {
             return PartialView("index");
         }
