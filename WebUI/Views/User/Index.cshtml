@@ -1,19 +1,65 @@
-﻿
+﻿@using Resources.Views.GeneralResource
 @{
     ViewBag.Title = "Index";
 }
+<script type="text/javascript">
+    $(document).ready(function() {
+        alert("Ya vitoco, comence a meterle mano un rato a esto XD");
+    });
 
-<h2>@Resources.Views.GeneralResource.GeneralText.ByeText</h2>
-@Ajax.ActionLink("mostrar","Hola",new AjaxOptions()
+    //esta funcion recibe el elemnto que se le hizo click, y un index para saber 
+    //en que posición hacia arriba se encuentra el elemento que se debe esconder. El subindex es solo pra hacer mas generica 
+    //y reutilizable la función
+    //deleteop:para eleiminar o solo esconder
+    function autoHiddeElement(element, subParent, deleteop) {
+        /*
+        forma facíl de hacerlo
+        if (subParent === 1) {
+          $(element).parent().fadeOut();
+            $(element).parent(2).fadeOut();
+        }
+        if (subParent === 2) {
+            $(element).parent().parent().fadeOut();
+        }*/
+        
+        //forma obtimizada
+        //si no viene el parametro de opcion de eliminar, solamente se deja como hidde
+        if (typeof deleteop === 'undefined' || deleteop===false) {
+            /* parent:busca el padre
+            eq: busca el padre por posicion, 0:elemento donde esta el elemento. en este caso el link <a> esta dentro de 
+            un fieldset entonces se le pasa 0
+            si se quisiera trabajar con el elemnto que contiene este fieldset seria eq(1) etc...*/
+            $(element).parents().eq(subParent).fadeOut();
+        } else if (deleteop === true) {
+            /*cuando vas a trabajar harto con un elemento, para no recorrer a cada rato el DOM
+             es recomendable guardar en una variable el elemento, despues solo lo usas
+            esos elementos se nombran con un $antes del nombre*/
+            var $elem = $(element).parents().eq(subParent); //aqui tienes el fieldset
+            //despues seria asi.
+            $elem.fadeOut('slow', function () {
+                $elem.remove();
+            });
+
+            //forma lenta
+            //$(element).parents().eq(subParent).fadeOut('slow', function () {
+            //    $(this).remove();
+            //});
+        }
+       
+            
+    }
+</script>
+
+<h2>@GeneralText.ExampleText</h2>
+@Ajax.ActionLink(GeneralText.AddText,"AddPart",new AjaxOptions()
                                       {
                                           HttpMethod = "post",
-                                          UpdateTargetId = "m",
+                                          UpdateTargetId = "Content",
                                           InsertionMode = InsertionMode.InsertBefore
                                       })
 
-<div id ="m">
-    
-
+<div id ="Content">
+   
 </div>
 
 

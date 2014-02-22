@@ -16,10 +16,11 @@ namespace WebUI.Controllers
             return View();
         }
 
+        //agrega una vista parcia al view que lo ejecute
         [HttpPost]
-        public ActionResult Hola()
+        public ActionResult AddPart()
         {
-            return PartialView("index");
+            return PartialView("_ItemPart");
         }
     }
 }

@@ -117,10 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddText" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
   <data name="ByeText" xml:space="preserve">
     <value>Ciao</value>
   </data>
-  <data name="HelloWord" xml:space="preserve">
+  <data name="DeleteText" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="ExampleText" xml:space="preserve">
+    <value>Ejemplo</value>
+  </data>
+  <data name="HelloWordText" xml:space="preserve">
     <value>Hola</value>
   </data>
 </root>
