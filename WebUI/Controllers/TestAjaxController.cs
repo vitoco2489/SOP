@@ -25,9 +25,14 @@ namespace WebUI.Controllers
         [HttpPost]
         public JsonResult TestListJsonFromJqueryJson()
         {
-            List<prueba> jlist=new List<prueba>();
             return Json(new List<prueba>(){new prueba(){Id = 1, Nombre = "John", Apellido = "Munoz"},new prueba(){Id = 2, Nombre = "Juan", Apellido = "Catalan"}});
         }
+        [HttpGet]
+        public ActionResult CargaVista()
+        {
+            return PartialView("Index");
+        }
+
 
     }
 }

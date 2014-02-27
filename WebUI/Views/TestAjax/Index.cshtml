@@ -67,6 +67,11 @@
             });
         });
 
+
+        $("#btnCargaVisatJquery").on('click', function () {
+            $("#CargaVista").load('/TestAjax/CargaVista');
+        });
+
     });
 </script>
 
@@ -88,4 +93,22 @@
     <label>Forma nativa Jquery "onClick"</label>
     <input id="btnListJson"  type="button" value="Traer datos"/>
     <div id="contentAjaxListJson"></div>
+</fieldset>
+
+<fieldset>
+    <legend>Carga una vista actionresult</legend>
+    <label>Forma nativa Jquery "onClick"</label>
+    <input id="btnCargaVisatJquery"  type="button" value="Traer datos"/>
+    <div id="CargaVista"></div>
+</fieldset>
+
+<fieldset>
+    <legend>Carga una vista actionresult con funcion nativa de 'Html.ajax'</legend>
+    @Ajax.ActionLink("Carga vista desde funcion nativa .NET","CargaVista","TestAjax",new AjaxOptions()
+                                                                                         {
+                                                                                             HttpMethod = "get",
+                                                                                             UpdateTargetId = "CargaVistaPuntoNet",
+                                                                                             InsertionMode = InsertionMode.InsertBefore
+                                                                                         })
+    <div id="CargaVistaPuntoNet"></div>
 </fieldset>
