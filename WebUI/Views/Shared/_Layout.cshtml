@@ -4,8 +4,9 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title</title>
+           @Scripts.Render("~/bundles/modernizr")
         @Styles.Render("~/Content/themes/default")
-        @Scripts.Render("~/bundles/modernizr")
+     
     </head>
 
     <body>
@@ -55,18 +56,15 @@
             </div>
             
         
-<<<<<<< HEAD
+
     @Scripts.Render("~/bundles/jquery")
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/jqueryval")
     @RenderBody()
-=======
-            @Scripts.Render("~/bundles/jquery")
-            @RenderSection("scripts", required: false)
-            @Scripts.Render("~/bundles/jqueryval")
-            @RenderBody()
+
+
         </div>
->>>>>>> 9b4215faf8bc43d67cda22130e9ed8bc78202ee0
+
     </body>
     <script type="text/javascript">
         $(function () {
