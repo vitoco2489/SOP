@@ -24,12 +24,7 @@ namespace WebUI
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-<<<<<<< HEAD
-            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css").Include("~/Content/stylemenu.css"));
-=======
             bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/site.css"));
-            bundles.Add(new StyleBundle("~/Content/themes/default").Include("~/Content/themes/default/Site.css"));
->>>>>>> 9b4215faf8bc43d67cda22130e9ed8bc78202ee0
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(
                         "~/Content/themes/base/jquery.ui.core.css",

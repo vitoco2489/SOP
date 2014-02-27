@@ -13,7 +13,7 @@ namespace WebUI.Controllers
         //
         // GET: /Base/
         public BaseController()
-        {
+        {//
             Thread.CurrentThread.CurrentCulture=new CultureInfo("es-CL");
             Thread.CurrentThread.CurrentUICulture = new CultureInfo("es-CL");
         }
