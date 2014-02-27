@@ -1,0 +1,88 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+
+    function TraerDatosSinParametros(idElement) {
+        $.ajax({
+            url: "/TestAjax/TestFromJqueryJson",
+            type: "post",
+            dataType: "json",
+            contentType: "application/json",
+            success: function (data) {
+                var label = "<label>data</label><br/>";
+                $(idElement).append(label.replace('data', data.Id));
+                $(idElement).append(label.replace('data', data.Nombre));
+                $(idElement).append(label.replace('data', data.Apellido));
+            },
+            error: function (ex) {
+                console.log(ex);
+            }
+        });
+    }
+    $(document).ready(function () {
+        //ejemplo invocando método ajax con jquery,
+        //método en servidor no recibe parametros
+        $("#btnGetData").on('click', function (e) {
+            $.ajax({
+                url: "/TestAjax/TestFromJqueryJson",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    var label = "<label>data</label><br/>";
+                    $("#contentAjaxNoPar").append(label.replace('data', data.Id));
+                    $("#contentAjaxNoPar").append(label.replace('data', data.Nombre));
+                    $("#contentAjaxNoPar").append(label.replace('data', data.Apellido));
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+        
+        $("#btnListJson").on('click', function (e) {
+            $.ajax({
+                url: "/TestAjax/TestListJsonFromJqueryJson",
+                type: "post",
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    var label = "<label>datare</label><br/>";
+                    $(data).each(function () {
+                        $("#contentAjaxListJson").append(label.replace('datare', this.Id));
+                        $("#contentAjaxListJson").append(label.replace('datare', this.Nombre));
+                        $("#contentAjaxListJson").append(label.replace('datare', this.Apellido));
+                        $("#contentAjaxListJson").append('<br/>otro<br/>');
+                    });
+                
+                },
+                error: function (ex) {
+                    console.log(ex);
+                }
+            });
+        });
+
+    });
+</script>
+
+<fieldset>
+    <legend>Trae datos ajax sin enviar parametros</legend>
+    <label>Forma nativa Jquery "onClick"</label>
+    <input id="btnGetData" type="button" value="Traer datos"/>
+    <div id="contentAjaxNoPar"></div>
+</fieldset>
+<br/>
+<fieldset>
+    <legend>Trae datos ajax sin enviar parametros con funcion onclick especificada en el btn</legend>
+    <input onclick="TraerDatosSinParametros('#contentAjaxNoParOnclick')"  type="button" value="Traer datos"/>
+    <div id="contentAjaxNoParOnclick"></div>
+</fieldset>
+
+<fieldset>
+    <legend>Trae Lista Json ajax sin enviar parametros</legend>
+    <label>Forma nativa Jquery "onClick"</label>
+    <input id="btnListJson"  type="button" value="Traer datos"/>
+    <div id="contentAjaxListJson"></div>
+</fieldset>
