@@ -55,7 +55,7 @@ namespace WebUI.Controllers
         [HttpPost]
         public ActionResult AddPart()
         {
-            return PartialView("_ItemPart");
+            return PartialView("index");
         }
     }
 }

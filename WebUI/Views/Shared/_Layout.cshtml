@@ -4,16 +4,83 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>@ViewBag.Title</title>
-        @Styles.Render("~/Content/css")
+        @Styles.Render("~/Content/themes/default")
         @Scripts.Render("~/bundles/modernizr")
     </head>
 
     <body>
+        <div id="wrapper">
+            <div id="welcome-bar">
+            </div>
+            <div id="navigationHead">
+                <div id="container">
+                    <ul id="navigation">
+                        <li class="home">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Home</span>
+                            </a>
+                        </li>
+                        <li class="about">
+                            <a href="" style="margin-top: -80px;">
+                                <span>About</span>
+                            </a>
+                        </li>
+                        <li class="search">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Search</span>
+                            </a>
+                        </li>
+                        <li class="photos">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Photos</span>
+                            </a>
+                        </li>
+                        <li class="rssfeed">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Rss Feed</span>
+                            </a>
+                        </li>
+                        <li class="podcasts">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Podcasts</span>
+                            </a>
+                        </li>
+                        <li class="contact">
+                            <a href="" style="margin-top: -80px;">
+                                <span>Contact</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
         
-    @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
-          @Scripts.Render("~/bundles/jqueryval")
-        @RenderBody()
-
+            @Scripts.Render("~/bundles/jquery")
+            @RenderSection("scripts", required: false)
+            @Scripts.Render("~/bundles/jqueryval")
+            @RenderBody()
+        </div>
     </body>
+    <script type="text/javascript">
+        $(function () {
+            var d = 300;
+            $('#navigation a').each(function () {
+                $(this).stop().animate({
+                    'marginTop': '-80px'
+                }, d += 150);
+            });
+            $('#navigation > li').hover(
+            function () {
+                $('a', $(this)).stop().animate({
+                    'marginTop': '-2px'
+                }, 200);
+            },
+            function () {
+                $('a', $(this)).stop().animate({
+                    'marginTop': '-80px'
+                }, 200);
+            }
+            );
+        });
+</script>
 </html>
